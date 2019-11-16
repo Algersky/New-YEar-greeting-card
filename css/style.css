@@ -1,0 +1,203 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.container {
+  margin: 0;
+  width: 100vw;
+  height: 1300vh;
+  background: url(../img/auspicious.png);
+  background-size: auto 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.page {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page:not(:last-child) {
+  margin-bottom: 200vh;
+}
+
+.section-one {
+  transform: translateZ(-1px);
+}
+
+.section-two {
+  transform: translateZ(-2px);
+}
+
+.section-three {
+  transform: translateZ(-3px);
+}
+
+.background {
+  position: relative;
+  /* background: linear-gradient(to top, #FFE4E1 0%, #FFFAFA 100%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.25); */
+  width: 100vw;
+  height: 60px;
+  color: #e50009;
+}
+
+.background input {
+  display: none;
+}
+
+.background .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1040px;
+  height: 240px;
+  border: 8px solid #e50009;
+  border-radius: 120px;
+  text-align: center;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 12px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.background .button:hover {
+  background-color: #f4eac2;
+}
+
+.background .button .fas {
+  position: absolute;
+  color: #e50009;
+  z-index: 2;
+  opacity: 0;
+}
+
+.background .circle {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  fill: none;
+  stroke: #f4eac2;
+  stroke-width: 8px;
+  stroke-linecap: round;
+  stroke-dasharray: 183 183;
+  stroke-dashoffset: 183;
+  opacity: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  pointer-events: none;
+  transform: rotate(-90deg);
+}
+
+.background input:checked~.button {
+  animation: button 0.5s ease both, fill 0.5s ease-out 1.5s forwards;
+}
+
+.background input:checked~.button .fas {
+  animation: check 0.5s ease-out 1.5s both;
+}
+
+.background input:checked~.circle {
+  animation: circle 2s ease-out 0.5s both;
+}
+
+@keyframes button {
+  0% {
+    width: 1040px;
+    left: 280px;
+    border-color: #f4eac2;
+    color: #e50009;
+  }
+
+  50% {
+    color: transparent;
+  }
+
+  100% {
+    width: 240px;
+    left: 680px;
+    border-color: #f4eac2;
+    background: transparent;
+    color: transparent;
+  }
+}
+
+@keyframes circle {
+  0% {
+    stroke-dashoffset: 183;
+  }
+
+  50% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 183;
+    transform: rotate(-90deg) scale(1);
+    opacity: 1;
+  }
+
+  90%,
+  100% {
+    stroke-dasharray: 500 500;
+    transform: rotate(-90deg) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes fill {
+  0% {
+    background: transparent;
+    border-color: #e50009;
+  }
+
+  100% {
+    background: #f4eac2;
+  }
+}
+
+@keyframes check {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.cloudsmall {
+  position: absolute;
+  left: 50vw;
+  top: -90vw;
+}
+
+.cloudhuge {
+  position: absolute;
+  left: -40vw;
+  bottom: -30vw;
+}
