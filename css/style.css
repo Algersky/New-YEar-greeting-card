@@ -16,7 +16,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 1300vh;
-  background: url(../img/auspicious.png);
+  background: url(../img/auspicious.jpg);
   background-size: auto 1000px;
   display: flex;
   flex-direction: column;
