@@ -64,10 +64,6 @@ body {
   color: #e50009;
 }
 
-.background input {
-  display: none;
-}
-
 .background .button {
   display: flex;
   justify-content: center;
@@ -200,4 +196,14 @@ body {
   position: absolute;
   left: -40vw;
   bottom: -30vw;
+}
+
+#ipt {
+  outline: none;
+  margin: 10vw;
+  font-size: 20vw;
+  background: #f4eac2;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
 }
