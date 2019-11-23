@@ -15,7 +15,7 @@ body {
 .container {
   margin: 0;
   width: 100vw;
-  height: 1300vh;
+  height: 1430vh;
   background: url(../img/auspicious.jpg);
   background-size: auto 1000px;
   display: flex;
@@ -196,6 +196,7 @@ body {
   position: absolute;
   left: -40vw;
   bottom: -30vw;
+  z-index: 1000;
 }
 
 #ipt {
@@ -206,4 +207,60 @@ body {
   border: none;
   border-radius: 50px;
   text-align: center;
+}
+
+@keyframes fadenum {
+  /*设置内容由隐藏变为显示*/
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadenum {
+  -webkit-animation: fadenum 8s infinite;
+  -moz-animation: fadenum 8s infinite;
+  animation: fadenum 8s infinite;
+}
+
+#page3inside {
+  display: flex;
+  top: 30vh;
+  width: 300%;
+  background: rgba(244,234,194,0.7);
+  font-size: 15vw;
+  border-radius: 120px;
+  border: 8px solid #e50009;
+}
+
+#greetingCard {
+  margin-left: -150vw;
+  width: 400vw;
+  height: 600vw;
+  padding-top: 405vw;
+  background: url(../img/backpic.jpg) no-repeat;
+  background-size: 400vw;
+  font-size: 10vw;
+}
+
+.pay {
+  display: none !important;
+}
+
+.page5inside {
+  width: 250vw;
+  margin-top: -320vw;
+}
+
+.plum {
+  position: absolute;
+  width: 200vw;
+  margin: -450vw -105vw;
 }

@@ -34,14 +34,14 @@
                 </div>
             </div>
         </div>
-        <div class="page" id="point2">
+        <div class="page" id="point2" style="margin-bottom: 330vh;">
             <div>
                 <img src="img/cloudsmall.png" class="cloudhuge section-one">
                 <img src="img/cloudhuge.png" class="cloudsmall section-two">
                 <div class="background section-three">
+                    <div id="iptback" style="font-size: 20vw;width: 500vw;">请输入唯一邀请码</div>
                     <label for="button" class="button" style="background: #f4eac2;margin-bottom: 10vw;">
-                        <div id="iptback" style="font-size: 20vw;"></div>
-                        <input type="text" id="ipt" placeholder="请输入唯一邀请码" maxlength="5">
+                        <input type="text" id="ipt" placeholder="戳这里" maxlength="5">
                     </label>
                     <label for="button" class="button" id="click2">
                         确认
@@ -50,13 +50,37 @@
                 </div>
             </div>
         </div>
-        <div class="page" id="point3"></div>
-        <div class="page" id="point4"></div>
+        <div class="page" id="point3">
+            <img src="img/cloudsmall.png" class="cloudhuge section-one">
+            <img src="img/cloudhuge.png" class="cloudsmall section-two">
+            <div class="background section-three pay" id="point3div">
+                <label id="page3inside">
+                    <div style="height: 300vh;padding: 20vw 0vw;">
+                        <span style="margin-left: 120vw;">新年祝语</span>
+                        <p id="paragraph" style="padding-top: 5vw;margin-left: -55vw;"></p>
+                    </div>
+                </label>
+                <label for="button" class="button" id="click3" style="margin-top: 30vh;">
+                    下一页
+                    <i class="fas fa-check" style="letter-spacing: 0;"></i>
+                </label>
+            </div>
+        </div>
+        <div class="page" id="point4">
+            <img src="img/cloudsmall.png" class="cloudhuge section-one">
+            <img src="img/cloudhuge.png" class="cloudsmall section-two" style="left: -50vw;">
+            <img src="img/cloudsmall.png" class="cloudhuge section-one" style="bottom: 120vw; left: 50vw;">
+            <img src="img/cloudhuge.png" class="cloudsmall section-three" style="top: 150vw;">
+        </div>
         <div class="page" id="point5">
-            <div class="countDown">
-                <div id="pause">停止</div>
-                <p>距离农历新年还有</p>
-                <p><span class="time"></span></p>
+            <div class="background section-three pay" id="greetingCard">
+                <img class="page5inside" src="img/middle.png">
+                <img class="plum" src="img/plum.png">
+                <div class="countDown" style="height: 800vw;">
+                    <!-- <div id="pause">停止</div> -->
+                    <p>距离农历新年还有</p>
+                    <p><span class="time"></span></p>
+                </div>
             </div>
         </div>
     </div>
@@ -75,24 +99,64 @@
             document.body.scrollTop = document.getElementById("point2").offsetTop;
         }
 
-        var list = ['00000', '01sdq'];
+        var names;
+        var list = ['00000', '01dhy'];
         var click2 = document.getElementById('click2');
-        click2.onclick = function (event) {
+        click2.onclick = function listName(event) {
             event.stopPropagation(); //防止冒泡
             var ipt = document.getElementById('ipt').value;
             var iptback = document.getElementById('iptback');
+            var point3div = document.getElementById('point3div');
+            var greetCard = document.getElementById('greetingCard');
             for (var i = 0; i < list.length; i++) {
                 if (ipt == list[i]) {
                     console.log(list[i]);
                     document.body.scrollTop = document.getElementById("point3").offsetTop;
-                    iptback.innerHTML = '';
+                    iptback.innerHTML = ' ';
                     click1.onclick = null;
+                    console.log('onclick');
+                    names = list[i];
+                    namelist();
+                    point3div.className = 'background section-three';
+                    greetCard.className = 'background section-three';
                     break;
                 } else {
                     iptback.innerHTML = '请输入正确信息';
                     console.log('1');
+                    break;
                 }
             }
+            setTimeout('fadeIn()', 250);
+        }
+
+        function namelist() {
+            console.log(names);
+            var inside = document.getElementById('paragraph');
+            console.log(inside);
+            if (names == '00000') {
+                inside.innerHTML = "测试字段</br>测试字段";
+                console.log('测试字段');
+            } else if (names == '01dhy') {
+                inside.innerHTML = '01dhy';
+            }
+        }
+
+        function fadeIn() {
+            var btn = document.getElementById('page3inside');
+            btn.className = 'fadenum';
+            console.log('fateIn');
+            setTimeout('fadeInOver()', 1000);
+        }
+
+        function fadeInOver() {
+            var btn = document.getElementById('page3inside');
+            btn.className = '';
+            console.log('fateInover');
+        }
+
+        var click3 = document.getElementById('click3');
+        click3.onclick = function () {
+            document.body.scrollTop = document.getElementById("point5").offsetTop;
         }
 
         var start = document.getElementById('start');
@@ -102,11 +166,11 @@
             var bgm = document.getElementById('audio');
             bgm.play();
         }
-        pause.onclick = function (event) {
-            event.stopPropagation(); //防止冒泡
-            var bgm = document.getElementById('audio');
-            bgm.pause();
-        }
+        // pause.onclick = function (event) {
+        //     event.stopPropagation(); //防止冒泡
+        //     var bgm = document.getElementById('audio');
+        //     bgm.pause();
+        // }
 
         document.addEventListener('touchstart', function () {
             function audioAutoPlay() {
