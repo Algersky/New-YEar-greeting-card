@@ -77,8 +77,9 @@
                 <img class="plum" src="img/plum.png">
                 <div class="countDown" style="height: 800vw;">
                     <!-- <div id="pause">停止</div> -->
-                    <p>距离农历新年还有</p>
+                    <p id="timeTitle">距离农历新年还有</p>
                     <p><span class="time"></span></p>
+                    <p id="Happy" style="display: none;font-size: 20vw;margin-left: 15vw;font-weight: 700;"><span>新年快乐！</span></p>
                 </div>
             </div>
         </div>
@@ -99,7 +100,7 @@
         }
 
         var names;
-        var list = ['00000', '01dhy'];
+        var list = ['00000', '01dhy','02@xh'];
         var click2 = document.getElementById('click2');
         click2.onclick = function listName(event) {
             event.stopPropagation(); //防止冒泡
@@ -132,11 +133,31 @@
             console.log(names);
             var inside = document.getElementById('paragraph');
             console.log(inside);
-            if (names == '00000') {
-                inside.innerHTML = "测试字段</br>测试字段";
-                console.log('测试字段');
-            } else if (names == '01dhy') {
-                inside.innerHTML = '01dhy';
+            switch (names) {
+                case '00000':
+                    inside.innerHTML = "测试字段</br>测试字段";
+                    console.log('测试字段');
+                    break;
+                case '01dhy':
+                    inside.innerHTML = '01dhy';
+                    console.log('01dhy');
+                    break;
+                case '02@Xh':
+                    inside.innerHTML = "测试字段</br>测试字段";
+                    console.log('测试字段');
+                    break;
+                case '03000':
+                    inside.innerHTML = "测试字段</br>测试字段";
+                    console.log('测试字段');
+                    break;
+                case '04000':
+                    inside.innerHTML = "测试字段</br>测试字段";
+                    console.log('测试字段');
+                    break;
+                case '05000':
+                    inside.innerHTML = "测试字段</br>测试字段";
+                    console.log('测试字段');
+                    break;
             }
         }
 
@@ -160,24 +181,23 @@
 
         var start = document.getElementById('start');
         var pause = document.getElementById('pause');
-        start.onclick = function (event) {
-            event.stopPropagation(); //防止冒泡
+        start.addEventListener('click', function () {
             var bgm = document.getElementById('audio');
             bgm.play();
-        }
+            }, true);
         // pause.onclick = function (event) {
         //     event.stopPropagation(); //防止冒泡
         //     var bgm = document.getElementById('audio');
         //     bgm.pause();
         // }
 
-        document.addEventListener('touchstart', function () {
-            function audioAutoPlay() {
-                var audio = document.getElementById('audio');
-                audio.play();
-            }
-            audioAutoPlay();
-        });
+        // document.addEventListener('touchstart', function () {
+        //     function audioAutoPlay() {
+        //         var audio = document.getElementById('audio');
+        //         audio.play();
+        //     }
+        //     audioAutoPlay();
+        // });
 
         var oSpan = document.getElementsByClassName('time')[0];
 
@@ -186,10 +206,13 @@
         }
 
         function getDate() {
+            var Happy = document.getElementById('Happy');
+            var title = document.getElementById('timeTitle');
             var oDate = new Date(); //获取日期对象
             var oldTime = oDate.getTime(); //现在距离1970年的毫秒数
             var newDate = new Date('2020/1/25 00:00:00');
-            var newTime = newDate.getTime(); //2019年距离1970年的毫秒数
+            var newTime = newDate.getTime(); //2020年春节距离1970年的毫秒数
+            // var newTime = 0;//新年功能测试
             var second = Math.floor((newTime - oldTime) / 1000); //未来时间距离现在的秒数
             var day = Math.floor(second / 86400); //整数部分代表的是天；一天有24*60*60=86400秒 ；
             second = second % 86400; //余数代表剩下的秒数；
@@ -202,6 +225,11 @@
                 tow(minute) + '<span class="time">分钟</span>' +
                 tow(second) + '<span class="time">秒</span>';
             oSpan.innerHTML = str;
+            if (newTime - oldTime <= 0) {
+                oSpan.style.display = 'none';
+                title.style.display = 'none';
+                Happy.style.display = 'block';
+            }
         }
         getDate();
         setInterval(getDate, 1000);
