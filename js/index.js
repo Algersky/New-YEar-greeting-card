@@ -201,7 +201,7 @@ window.addEventListener('load', function () {
         }
         setTimeout('fadeIn()', 250);
     }
-    
+
     function namelist() {
         console.log(names);
         var inside = document.getElementById('paragraph');
@@ -212,14 +212,14 @@ window.addEventListener('load', function () {
                 console.log('测试字段');
                 break;
             case '01dhy':
-                inside.innerHTML = '01dhy';
+                inside.innerHTML = '致董海钰</br>落叶，常要归根</br>但可以借风翱翔天空</br>也可以借水鹏腾万里</br>挑战，常伴随的是风险</br>安逸，单调无趣的重复</br>与其就此安详</br>我想冲上云霄</br>去看，去听</br>那我从未任职的世界。</br></br>除旧迎新</br>制定一年的计划</br>考研的起跑线就在眼前</br>冲吧</br>冲向梦的彼岸</br>飞翔在辽阔的远方';
                 console.log('01dhy');
                 break;
             case '02@Xh':
                 inside.innerHTML = "测试字段</br>测试字段";
                 console.log('测试字段');
                 break;
-            case '03000':
+            case '03sdq':
                 inside.innerHTML = "测试字段</br>测试字段";
                 console.log('测试字段');
                 break;
@@ -257,7 +257,7 @@ window.addEventListener('load', function () {
     function tow(n) {
         return n >= 0 && n < 10 ? '0' + n : '' + n;
     }
-    
+
     function getDate() {
         var Happy = document.getElementById('Happy');
         var title = document.getElementById('timeTitle');
