@@ -173,7 +173,7 @@ function fadeInOver() {
 
 window.addEventListener('load', function () {
     var names;
-    var list = ['00000', '01dhy', '02@xh'];
+    var list = ['00000', '01dhy', '02@xh', '03sdq', '04000', '05000'];
     var click2 = document.getElementById('click2');
     click2.onclick = function listName(event) {
         event.stopPropagation(); //防止冒泡
@@ -181,24 +181,31 @@ window.addEventListener('load', function () {
         var iptback = document.getElementById('iptback');
         var point3div = document.getElementById('point3div');
         var greetCard = document.getElementById('greetingCard');
+        var k = 0 //查询计数器
         for (var i = 0; i < list.length; i++) {
             if (ipt == list[i]) {
                 console.log(list[i]);
                 document.body.scrollTop = document.getElementById("point3").offsetTop;
                 iptback.innerHTML = ' ';
                 click1.onclick = null;
-                console.log('onclick');
                 names = list[i];
+                console.log('names');
                 namelist();
                 point3div.className = 'background section-three';
                 greetCard.className = 'background section-three';
                 break;
-            } else {
-                iptback.innerHTML = '请输入正确信息';
-                console.log('1');
-                break;
-            }
+                // } else {
+                //     iptback.innerHTML = '请输入正确信息';
+                //     console.log('1');
+                //     break;
+            };
+            k++;
+        };
+        if (k == list.length) {
+            iptback.innerHTML = '请输入正确信息';
+            console.log('1');
         }
+
         setTimeout('fadeIn()', 250);
     }
 
@@ -228,7 +235,7 @@ window.addEventListener('load', function () {
                 console.log('测试字段');
                 break;
             case '05000':
-                inside.innerHTML = "测试字段</br>测试字段";
+                inside.innerHTML = "测试字段</br>测试字段05";
                 console.log('测试字段');
                 break;
         }
