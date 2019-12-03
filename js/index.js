@@ -172,8 +172,32 @@ function fadeInOver() {
 }
 
 window.addEventListener('load', function () {
+    var text = {
+        keyword: '00000',
+        inside: "测试字段</br>测试字段",
+    };
+    var dhy = {
+        keyword: '01dhy',
+        parspan: '致董海钰：',
+        inside: '落叶，常要归根</br>但可以借风翱翔天空</br>也可以借水鹏腾万里</br>挑战，常伴随的是风险</br>安逸，单调无趣的重复</br>与其就此安详</br>我想冲上云霄</br>去看，去听</br>那我从未任职的世界。</br></br>除旧迎新</br>制定一年的计划</br>考研的起跑线就在眼前</br>冲吧</br>冲向梦的彼岸</br>飞翔在辽阔的远方',
+    };
+    var xh = {
+        keyword: '02@xh',
+        parspan: '致薛惠：',
+        inside: "测试字段</br>测试字段",
+    };
+    var sdq = {
+        keyword: '03sdq',
+        parspan: '致沈丹青：',
+        inside: "测试字段</br>测试字段",
+    };
+    var chx = {
+        keyword: '04chx',
+        parspan: '致小轩轩：',
+        inside: "测试字段</br>测试字段",
+    };
     var names;
-    var list = ['00000', '01dhy', '02@xh', '03sdq', '04000', '05000', '06000', '07000', '08000'];
+    var list = [text, dhy, xh, sdq, chx];
     var click2 = document.getElementById('click2');
     click2.onclick = function listName(event) {
         event.stopPropagation(); //防止冒泡
@@ -181,16 +205,18 @@ window.addEventListener('load', function () {
         var iptback = document.getElementById('iptback');
         var point3div = document.getElementById('point3div');
         var greetCard = document.getElementById('greetingCard');
+        var parspan = document.getElementById('parinside1');
+        var inside = document.getElementById('parinside2');
         var k = 0 //查询计数器
         for (var i = 0; i < list.length; i++) {
-            if (ipt == list[i]) {
+            sdq
+            if (ipt == list[i].keyword) {
                 // console.log(list[i]);
                 document.body.scrollTop = document.getElementById("point3").offsetTop;
                 iptback.innerHTML = ' ';
                 click1.onclick = null;
-                names = list[i];
-                // console.log('names');
-                namelist();
+                parspan.innerHTML = list[i].parspan;
+                inside.innerHTML = list[i].inside;
                 point3div.className = 'background section-three';
                 greetCard.className = 'background section-three';
                 break;
@@ -205,37 +231,37 @@ window.addEventListener('load', function () {
         setTimeout('fadeIn()', 250);
     }
 
-    function namelist() {
-        // console.log(names);
-        var parspan = document.getElementById('parinside1');
-        var inside = document.getElementById('parinside2');
-        // console.log(inside);
-        switch (names) {
-            case '00000':
-                inside.innerHTML = "测试字段</br>测试字段";
-                break;
-            case '01dhy':
-                parspan.innerHTML = '致董海钰：';
-                inside.innerHTML = '落叶，常要归根</br>但可以借风翱翔天空</br>也可以借水鹏腾万里</br>挑战，常伴随的是风险</br>安逸，单调无趣的重复</br>与其就此安详</br>我想冲上云霄</br>去看，去听</br>那我从未任职的世界。</br></br>除旧迎新</br>制定一年的计划</br>考研的起跑线就在眼前</br>冲吧</br>冲向梦的彼岸</br>飞翔在辽阔的远方';
-                break;
-            case '02@Xh':
-                parspan.innerHTML = '致薛惠：';
-                inside.innerHTML = "测试字段</br>测试字段";
-                break;
-            case '03sdq':
-                parspan.innerHTML = '';
-                inside.innerHTML = "测试字段</br>测试字段";
-                break;
-            case '04000':
-                parspan.innerHTML = '';
-                inside.innerHTML = "测试字段</br>测试字段";
-                break;
-            case '05000':
-                parspan.innerHTML = '';
-                inside.innerHTML = "测试字段</br>测试字段05";
-                break;
-        }
-    }
+    // function namelist() {
+    //     // console.log(names);
+    //     var parspan = document.getElementById('parinside1');
+    //     var inside = document.getElementById('parinside2');
+    //     // console.log(inside);
+    //     switch (names) {
+    //         case '00000':
+    //             inside.innerHTML = "测试字段</br>测试字段";
+    //             break;
+    //         case '01dhy':
+    //             parspan.innerHTML = '致董海钰：';
+    //             inside.innerHTML = '落叶，常要归根</br>但可以借风翱翔天空</br>也可以借水鹏腾万里</br>挑战，常伴随的是风险</br>安逸，单调无趣的重复</br>与其就此安详</br>我想冲上云霄</br>去看，去听</br>那我从未任职的世界。</br></br>除旧迎新</br>制定一年的计划</br>考研的起跑线就在眼前</br>冲吧</br>冲向梦的彼岸</br>飞翔在辽阔的远方';
+    //             break;
+    //         case '02@Xh':
+    //             parspan.innerHTML = '致薛惠：';
+    //             inside.innerHTML = "测试字段</br>测试字段";
+    //             break;
+    //         case '03sdq':
+    //             parspan.innerHTML = '';
+    //             inside.innerHTML = "测试字段</br>测试字段";
+    //             break;
+    //         case '04000':
+    //             parspan.innerHTML = '';
+    //             inside.innerHTML = "测试字段</br>测试字段";
+    //             break;
+    //         case '05000':
+    //             parspan.innerHTML = '';
+    //             inside.innerHTML = "测试字段</br>测试字段05";
+    //             break;
+    //     }
+    // }
 })
 
 window.addEventListener('load', function () {
@@ -247,7 +273,7 @@ window.addEventListener('load', function () {
 
 window.addEventListener('load', function () {
     var start = document.getElementById('start');
-    var pause = document.getElementById('pause');
+    // var pause = document.getElementById('pause');
     start.addEventListener('click', function () {
         var bgm = document.getElementById('audio');
         bgm.play();
